@@ -24,17 +24,20 @@
 
   # Setup nginx
   services.nginx.enable = true;
-
+  
   # Setup default virtualhost
-  services.nginx.virtualHosts."142.93.229.40" = {
-    root = "/root/server/test_website";
+  services.nginx.virtualHosts."johndaniel.work" = {
+    root = "/var/www/johndaniel.work";
     default = true;
-    listen = [ {addr = "142.93.229.40"; port = 80;} ];
+    forceSSL = true;
+    enableACME = true;
     locations= {
     	"/" = {
 		tryFiles = "$uri $uri/index.html";
 	};
     };
+
+  
 };
   
 }
