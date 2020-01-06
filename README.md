@@ -14,6 +14,17 @@ So for example
 ```
 if your digital ocean server has the ip `192.168.3.10`. [Source][2].
 
+# Set up of domains
+It is easy to link a domain if the domain has a digitial ocean nameserver. If that is the case, go to digital ocean panel for **Networking** and link domains. 
+
+If the domain is not in digital ocean, add it. Then, in hover, where I have bought my domains, you add the name servers to the domains:
+```
+	ns1.digitalocean.com
+	ns2.digitalocean.com
+	ns3.digitalocean.com
+```
+Default in hover is `ns1.hover.com` and `ns2.hover.com`. For other domain registrars, look at [this resource][3]
+
 # Documentation on how I went about setting up configuration.nix
 
 ## Setup nginx
@@ -60,3 +71,4 @@ Which line by line is
 
 [1]: https://github.com/elitak/nixos-infect
 [2]: https://stackoverflow.com/questions/20840012/ssh-remote-host-identification-has-changed
+[3]: https://www.digitalocean.com/community/tutorials/how-to-point-to-digitalocean-nameservers-from-common-domain-registrars
