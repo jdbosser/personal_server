@@ -22,6 +22,13 @@ body {
     align-items: center;
 }
 
+#rightside {
+    clip-path: polygon(100% 0%, 100% 100%, 0 100%, 10% 0);
+    background-image: url("images/me.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
 #logo > img {
     width: 10em;
     margin-bottom: 3em;
