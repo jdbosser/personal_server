@@ -14,6 +14,32 @@ So for example
 ```
 if your digital ocean server has the ip `192.168.3.10`. [Source][2].
 
+# Getting this repo onto the machine 
+
+You need git for this to work. Add git temporarly:
+```
+nix-shell -p git
+```
+and then you can
+```
+git clone https://github.com/jdbosser/personal_server.git
+```
+Now you need to add a link to the configuration file into `/etc/nixos/configuration.nix`
+```
+rm /etc/nixos/configuration.nix
+ln -s $(pwd)/personal_server/configuration.nix /etc/nixos/configuration.nix
+```
+and place the `hardware-configuration.nix` and `networking.nix` files in the personal server folder
+```
+mv /etc/nixos/hardware-configuration.nix personal_server/
+mv /etc/nixos/networking.nix personal_server/
+```
+and finally run 
+```
+nixos-rebuild switch
+```
+to get the server up and running. 
+
 # Set up of domains
 It is easy to link a domain if the domain has a digitial ocean nameserver. If that is the case, go to digital ocean panel for **Networking** and link domains. 
 
@@ -87,6 +113,16 @@ Setting up https was pretty straight forward. I had a lot of trouble getting the
 ```
 which was the only way to do it it seems like. 
 
+## Setup of minecraft
+
+Minecraft-server is already among the nixos modules. 
+
+However, there is one wierd thing that happens whenever the `minecraft-server.service` is running: it is no longer possible to rebuild the system since nixos cannot connect to the deamon. I am getting errors like:
+```
+cannot open connection to remote store 'daemon': writing to file: Broken pipe
+```
+when running `nixos-rebuild switch`.
+To fix this, make sure that the `minecraft-server.service` is stopped before running `nixos-rebuild switch`
 
 [1]: https://github.com/elitak/nixos-infect
 [2]: https://stackoverflow.com/questions/20840012/ssh-remote-host-identification-has-changed
