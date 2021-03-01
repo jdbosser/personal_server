@@ -17,17 +17,19 @@ body {
 
 #leftside {
     display: flex;
-    padding: 5em;
+    padding: 10%;
     justify-content: center;
     align-items: center;
 }
 
 #rightside {
     clip-path: polygon(100% 0%, 100% 100%, 0 100%, 10% 0);
-    background-image: url("images/me.jpg");
+    background-image: url("images/new_me.jpg");
     background-size: cover;
     background-position: center;
 }
+
+
 
 #logo > img {
     width: 10em;
@@ -55,4 +57,26 @@ ul.row_links > li::before {
     height: 6px;
     border-radius: 100%;
     background-color: currentColor;
+}
+@media only screen and (max-width: 960px) {
+  /* For mobile phones: */
+    #rightside {
+        display:none;
+    }
+    #content-wrapper {
+      min-height: 100%;
+      display: grid;
+      grid-template-columns: 100% 0%;
+    }   
+    #logo {
+        text-align: center;
+    }
+    #logo > img {
+        width: 40%;
+        margin-bottom: 1em;
+        max-width: 10em;
+    }
+    html, body {
+        font-size: 1em;
+    }
 }
