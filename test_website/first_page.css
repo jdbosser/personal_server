@@ -39,9 +39,20 @@ ul.row_links {
     margin: 0;
     padding: 0;
     padding-top: 1em;
+    line-height: 2em;
 }
 
 ul.row_links > li {
-    display: inline list-item; 
+    display: inline-block; 
     padding-right: 1em;
+}
+ul.row_links > li::before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 0.5ch;
+    width: 6px;
+    height: 6px;
+    border-radius: 100%;
+    background-color: currentColor;
 }
