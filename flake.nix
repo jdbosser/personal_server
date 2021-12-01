@@ -3,9 +3,8 @@
 
   outputs = { self, nixpkgs }: {
 
-	nixosModule = {
+	nixosModule = (
 	
-	{config} : 
 	let 
 	
 	vHost = { root = ./test_website;
@@ -18,6 +17,7 @@
 	    };
 	};
 	in
+	{config} : 
 	{
 		
 			
@@ -39,9 +39,9 @@
 	};
 
 	
-	}
+	});
 
-	};
+	
 
   };
 }
