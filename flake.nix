@@ -17,7 +17,7 @@
 	    };
 	};
 	in
-	{config} : 
+	{config, ...} : 
 	{
 		
 			
